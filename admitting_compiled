@@ -1,0 +1,112 @@
+-- phpMyAdmin SQL Dump
+-- version 4.3.11
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 14, 2015 at 04:19 AM
+-- Server version: 5.6.24
+-- PHP Version: 5.6.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `admitting`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admitting_3`
+--
+
+CREATE TABLE IF NOT EXISTS `admitting_3` (
+  `patient_id` int(11) NOT NULL,
+  `bed_number` int(11) NOT NULL,
+  `room_number` int(11) NOT NULL,
+  `assigned_physician` text NOT NULL,
+  `treatment_period` date NOT NULL,
+  `treatment_plan` text NOT NULL,
+  `mode_payment` int(11) NOT NULL,
+  `insurance` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medical_records`
+--
+
+CREATE TABLE IF NOT EXISTS `medical_records` (
+  `patient_id` int(11) NOT NULL,
+  `date_admission` date NOT NULL,
+  `date_discharge` date NOT NULL,
+  `admitted_by` text NOT NULL,
+  `length_stay` int(11) NOT NULL,
+  `reason_admission` text NOT NULL,
+  `transport` text NOT NULL,
+  `priority` text NOT NULL,
+  `referral` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient_info`
+--
+
+CREATE TABLE IF NOT EXISTS `patient_info` (
+  `patient_id` int(11) NOT NULL,
+  `patient_first` text NOT NULL,
+  `patient_middle` text NOT NULL,
+  `patient_last` text NOT NULL,
+  `patient_age` int(2) NOT NULL,
+  `patient_gender` text NOT NULL,
+  `patient_dob` date NOT NULL,
+  `patient_add` text NOT NULL,
+  `patient_contact` int(11) NOT NULL,
+  `patient_email` text NOT NULL,
+  `patient_occupation` text NOT NULL,
+  `patient_citizenship` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admitting_3`
+--
+ALTER TABLE `admitting_3`
+  ADD PRIMARY KEY (`patient_id`);
+
+--
+-- Indexes for table `medical_records`
+--
+ALTER TABLE `medical_records`
+  ADD PRIMARY KEY (`patient_id`);
+
+--
+-- Indexes for table `patient_info`
+--
+ALTER TABLE `patient_info`
+  ADD PRIMARY KEY (`patient_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `patient_info`
+--
+ALTER TABLE `patient_info`
+  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
